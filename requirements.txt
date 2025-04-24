@@ -1,0 +1,9 @@
+flask
+python-dotenv
+openai
+langchain
+langchain-community
+tiktoken
+pypdf
+pillow
+pytesseract
