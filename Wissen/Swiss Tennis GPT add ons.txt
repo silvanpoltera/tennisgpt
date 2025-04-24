@@ -1,0 +1,144 @@
+GPT Korrekturen
+
+News Modul
+
+Wenn eine news zu einem 3. System geschickt werden soll, muss jeweils auch die Kategorie angewählt werden wie : myTennis oder Kids Tennis
+
+Related news: wenn die news im news modul angezeigt werden soll, muss das related angewählt werden, dann kommt es in dieser art von Vorschau news
+
+
+People und Players
+
+Hier ist wichtig das nichts im CMS angepasst wird. Dies ist nur für den Admin möglich. Für normale User wird dies immer über Canto gesteuert, in dem da die richtigen Custom attributes gesetzt werden.
+
+
+Stellenbörse
+
+Diese ist mit einer Schnittstelle an das Swiss Tennis Backoffice (eigene CRM) gekoppelt und wird da gesteuert.
+
+Personen Suche
+
+Diese ist mit einer Schnittstelle an das Swiss Tennis Backoffice (eigene CRM) gekoppelt und wird da gesteuert.
+
+Kurse (Courses)
+
+Diese ist mit einer Schnittstelle an das Swiss Tennis Backoffice (eigene CRM) gekoppelt und wird da gesteuert.
+
+Formulare
+
+Hier ist wichtig dass diese unter dem Modul "Contact" erstellt werden müssen. Diese funktionieren aber nur richtig wenn auch alle anderen Sprachen ausgefüllt sind.
+
+
+Dies mit den weiteren sprachen gilt grundsätzlich immer.
+
+
+Header Slider
+
+Dieses Modul wurde seit dem Beginn öfter angepasst. Hier gilt es immer zu bedenken:
+
+Zu lange Wortabfolgen verursachen Probleme in der Darstellung kleiner Screens. Und sind Nebenbau auch aus Marketingperspektive oft nicht cool.
+
+
+Wichtig ist auch immer bei allen Modulen die eine Detailseite haben wie: News, Promotions
+
+Hier muss jeweils irgendwo in der Struktur eine detail Seite sein, damit diese öffnet wenn jemand auf die vorschau klickt. Aber Achtung, diese Seiten wie zB News Details dürfen nur einmal bestehen und können nicht nach belieben ergänzt werden, dies verursacht sonst Probleme in der Ausspielung.
+
+
+Es gibt auch einen Shop im KidsTennis Bereich
+Hier können punkte eingelöst werden. Alles was mit einem Login zu tun hat, läuft über einen SSO von Azure welcher für die MyTennis App entwickelt wurde. 
+
+Hier gibt es auch Rollen die je nachdem auf der Webseite zum Zug kommen:
+
+Kids, Kids Club responsible, Official, Referee, Expert, Teacher
+
+Diese werden für gewisse Logins wie in der Ausbildung oder Kids benötigt. Da kann es immer wieder zu Problemen kommen, dann muss einerseits jeweils die API der 3. Systeme geprüft werden wobei bei Swiss Tennis Sabine Ingold helfen kann, oder extern die Bude die das entwickelt hat: Dreamproductions.
+Oft liegt es dann an Hausra API Token Anpassungen oder Problemen bei updates zwischen Stage und Live APIs...einfach als Side Info
+
+
+Ads
+
+Wichtig ist dass bei den Ads auch Statistiken gezogen werden können nach Impressions und Clicks
+
+
+Es gibt natürlich auch Dashboard mit den wichtigsten Daten von Google Analytics
+
+
+News - Push notifications Zusatz
+
+Und hier noch die Spezifikationen der ursprünglichen Anforderung auf Deutsch:
+
+1. Benachrichtigungseinstellungen definieren
+Titel und Inhalt in Deutsch (DE) und Französisch (FR) bereitstellen.
+URLs für den Inhalt in Deutsch und Französisch angeben.
+
+2. Kategorien und Typen
+News-Kategorie: Muss für die CompApp geeignet sein, aktuelles Beispiel ist "myTennis".
+News-Typ: Kann entweder "Benachrichtigung" oder "Normal" sein.
+
+3. Lizenzierung
+Lizenz: Kann "alle", "normal" oder "lizenziert" sein.
+Lizenziert: Zielgruppe sind nur lizenzierte Spieler.
+Normal: Zielgruppe sind alle Nutzer, die keine Spieler sind.
+Alle: Kein spezieller Parameter, zielt auf alle Nutzer ab.
+
+4. Abonnements
+Abonnements: Kann "alle", "frei" oder "premium" sein.
+Premium: Zielgruppe sind nur Nutzer mit Premium-Konten.
+Frei: Zielgruppe sind alle Nutzer ohne Premium-Konten.
+Alle: Kein spezieller Parameter, zielt auf alle Nutzer ab.
+
+5. Rollen
+Rollen: Spezifiziert eine Liste von Rollen (z.B. IC-Kapitän, JIC-Kapitän, TC-Kapitän, Schiedsrichter, Offizieller).
+Wenn kein Rollenparameter angegeben ist, wird die Nachricht an alle Nutzer gesendet.
+
+6. Spezielle Bedingungen
+skipPushNotification: Wenn auf "true" gesetzt, wird die Benachrichtigung nur im Nachrichtenzentrum angezeigt und löst keine Push-Benachrichtigung aus.
+Für "compapp-fähige" Kategorien und den Typ "Benachrichtigung" sollte dies auf "falsch" gesetzt werden.
+Für "compapp-fähige" Kategorien und den Typ "normal" sollte dies auf "wahr" gesetzt werden.
+
+7. Entwicklungsumgebung
+Teste zuerst in der Entwicklungsumgebung (DEV), um sicherzustellen, dass alles wie erwartet funktioniert.
+
+8. Hinweise zur Implementierung
+Benachrichtigungen werden nur einmal pro News-Artikel gesendet.
+News-Artikel ohne Inhalte in allen Sprachen werden übergangen.
+HTML-Tags werden aus dem Inhalt der News-Artikel entfernt, um die Qualität zu optimieren.
+
+Einiges davon kann nun auch schon in der News Übersicht gesehen werden und es gibt dein spezielles button um dies zu prüfen oder gleich zu pushen, da sieht man was schon gepushed wurde und so.
+
+So wie hier beschrieben:
+
+We've to extend the module 'news' with more control for their push notfication.
+
+We create a 'control-center'. When admin clicks on 'Push notfications' he gonna see a pop-up with all news shown, which are about to be sent. The admin can now deactivate news directly in this overview and has to confirm again. When sent we show a success message.
+
+Additionally to this (no design needed), we improve the information of news in backend.
+
+Overview
+Place 'is pushed?' next to 'is inactive?'
+Detail
+- Add information, when the news was pushed
+- Add an additional field, to allow admin to exclude news from push
+Control center
+- When a news was disable in control-center, just show it again, till it was manually set to 'exclude from push' in detail 
+
+
+Organigramm
+
+Auch etwas das wie schon zigfach angepasst haben. Das ist ein Module das bei grösseren Anpassungen immer ein Design braucht, da es responsive ist und nicht einfach so mehrerer neue Abteilungen anzeigen kann.
+Wichtig zu wissen, wer da angezeigt wird, muss über Canto gesteuert werden. Wenn den Personen (Fotos) die nötigen Abteilungen eingestellt werden, werden diese Automatisch im Organigramm angezeigt. Die Reihenfolge könnte theoretisch manuell im CMS und People per drag and drop eingestellt werden.
+
+Das gleich für die ZV Mitglieder.
+
+Die Regionalverbandsmitglieder werden aus dem Backoffice von Swiss tennis geholt, ähnlich wie die Athleten der Kader.
+
+
+
+
+
+
+
+
+
+
+
