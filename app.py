@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.chat_models import ChatOpenAI
 from langchain.chains.question_answering import load_qa_chain
@@ -11,11 +11,26 @@ from langchain.chains.question_answering import load_qa_chain
 load_dotenv()
 app = Flask(__name__)
 
-# Lade Dokumente
-loader = TextLoader("Wissen/swiss-tennis-gpt.txt", encoding='utf8')
-documents = loader.load()
+# Der Pfad zum Ordner, in dem sich die PDFs befinden
+wissen_ordner = "Wissen"
 
-# Splitten
+# Erstelle eine leere Liste für alle Dokumente
+documents = []
+
+# Gehe durch alle Dateien im Wissen-Ordner und lade PDFs
+for filename in os.listdir(wissen_ordner):
+    file_path = os.path.join(wissen_ordner, filename)
+    
+    # Überprüfe, ob die Datei eine PDF ist
+    if filename.endswith(".pdf"):
+        # Lade die PDF mit PyPDFLoader
+        loader = PyPDFLoader(file_path)
+        pdf_docs = loader.load()
+        
+        # Füge die geladenen PDFs der Gesamt-Dokumentenliste hinzu
+        documents.extend(pdf_docs)
+
+# Splitten der Dokumente in kleinere Textabschnitte
 splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 docs = splitter.split_documents(documents)
 
@@ -23,8 +38,7 @@ docs = splitter.split_documents(documents)
 embedding = OpenAIEmbeddings()
 vectorstore = Chroma.from_documents(docs, embedding)
 
-
-# Chain
+# Chain für die Frage-Antwort-Suche
 chain = load_qa_chain(ChatOpenAI(model="gpt-4", temperature=0), chain_type="stuff")
 
 @app.route("/antwort", methods=["POST"])
