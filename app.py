@@ -32,10 +32,10 @@ for filename in os.listdir(wissen_ordner):
         txt_docs = loader.load()
         documents.extend(txt_docs)
 
-    elif filename.endswith(".png"):
-        loader = UnstructuredImageLoader(file_path)
-        img_docs = loader.load()
-        documents.extend(img_docs)
+   # elif filename.endswith(".png"):
+    #    loader = UnstructuredImageLoader(file_path)
+     #   img_docs = loader.load()
+       # documents.extend(img_docs)
 
 # Dokumente splitten
 splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
