@@ -24,14 +24,11 @@ for filename in os.listdir(wissen_ordner):
 
     # Überprüfe, ob die Datei eine PDF ist
     if filename.endswith(".pdf"):
-        # Lade die PDF mit PyPDFLoader
         loader = PyPDFLoader(file_path)
         pdf_docs = loader.load()
-
-        # Füge die geladenen PDFs der Gesamt-Dokumentenliste hinzu
         documents.extend(pdf_docs)
 
-# Splitten der Dokumente in kleinere Textabschnitte
+# Dokumente splitten
 splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 docs = splitter.split_documents(documents)
 
@@ -39,7 +36,7 @@ docs = splitter.split_documents(documents)
 embedding = OpenAIEmbeddings()
 vectorstore = Chroma.from_documents(docs, embedding)
 
-# LLMChain vorbereiten mit fester Systemanweisung
+# LLMChain mit fester Systemanweisung
 system_prompt = (
     "Du bist ein digitaler CMS-Experte für das speziell entwickelte Swiss Tennis CMS, "
     "basierend auf einem individuellen PHP-Framework. Deine Aufgabe ist es, Redakteur:innen und "
@@ -66,11 +63,9 @@ llm_chain = LLMChain(llm=ChatOpenAI(model="gpt-4", temperature=0), prompt=prompt
 @app.route("/antwort", methods=["POST"])
 def antwort():
     frage = request.json.get("frage")
-
-    # Suche ähnliche Dokumente
     docs = vectorstore.similarity_search(frage)
 
-    # Extrahiere Quelleninformationen
+    # Quellen extrahieren
     quellen = []
     for doc in docs:
         quelle = doc.metadata.get('source', 'Unbekannte Quelle')
@@ -80,23 +75,21 @@ def antwort():
 
     quellen_text = ""
     if quellen:
-        quellen_text = "\nHinweis zu den Quellen:\n" + "\n".join(set(quellen))
+        quellen_text = "<br><br><b>Hinweis zu den Quellen:</b><br>" + "<br>".join(set(quellen))
 
-    # KI-Antwort generieren
+    # Antwort generieren
     response = llm_chain.run(frage=frage)
 
-    # Antwort zusammenbauen
+    # Antwort zusammensetzen mit HTML-Formatierung
     antwort_text = (
-        "Hey lieber Tennis Fan,\n\n"
-        "------------------------------\n\n"
-        f"{response}\n\n"
-        "------------------------------\n"
-        f"{quellen_text}\n\n"
-        "Wir hoffen, dass wir dir mit dieser Antwort helfen konnten.\n"
-        "Falls die Informationen nicht ausreichend waren, wende dich bitte an eure interne IT-Abteilung,\n"
-        "damit diese ein Ticket in Click Up erstellen kann.\n\n"
-        "Wir danken dir und wünschen dir noch einen schönen Tag.\n\n"
-        "Liebe Gruesse\n"
+        "<b>Hey lieber Tennis Fan,</b><br><br>"
+        f"{response}<br><br>"
+        f"{quellen_text}<br><br>"
+        "Wir hoffen, dass wir dir mit dieser Antwort helfen konnten.<br>"
+        "Falls die Informationen nicht ausreichend waren, wende dich bitte an eure interne IT-Abteilung,<br>"
+        "damit diese ein Ticket in Click Up erstellen kann.<br><br>"
+        "Wir danken dir und wünschen dir noch einen schönen Tag.<br><br>"
+        "Liebe Gruesse<br>"
         "Dein Swiss Tennis CMS Support Team"
     )
 
