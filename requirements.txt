@@ -8,3 +8,5 @@ pypdf
 pillow
 pytesseract
 chromadb
+unstructured
+
