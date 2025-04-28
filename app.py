@@ -20,13 +20,13 @@ documents = []
 # Gehe durch alle Dateien im Wissen-Ordner und lade PDFs
 for filename in os.listdir(wissen_ordner):
     file_path = os.path.join(wissen_ordner, filename)
-    
+
     # Überprüfe, ob die Datei eine PDF ist
     if filename.endswith(".pdf"):
         # Lade die PDF mit PyPDFLoader
         loader = PyPDFLoader(file_path)
         pdf_docs = loader.load()
-        
+
         # Füge die geladenen PDFs der Gesamt-Dokumentenliste hinzu
         documents.extend(pdf_docs)
 
@@ -44,18 +44,28 @@ chain = load_qa_chain(ChatOpenAI(model="gpt-4", temperature=0), chain_type="stuf
 @app.route("/antwort", methods=["POST"])
 def antwort():
     frage = request.json.get("frage")
+
+    # Hinweis an das Modell hinzufügen, in Du-Form zu antworten
+    angepasste_frage = (
+        "Bitte beantworte die folgende Frage in der Du-Form und sehr freundlich formuliert:\n"
+        f"{frage}"
+    )
+
     docs = vectorstore.similarity_search(frage)
-    response = chain.run(input_documents=docs, question=frage)
+    response = chain.run(input_documents=docs, question=angepasste_frage)
 
     # Formatierte Antwort erstellen
     antwort_text = (
         "Hey lieber Tennis Fan,\n\n"
+        "------------------------------\n\n"
         f"{response}\n\n"
-        "Wir hoffen, dass wir dir mit dieser Antwort helfen konnten. "
-        "Falls die Informationen nicht ausreichend waren, wende dich bitte an eure interne IT-Abteilung, "
+        "------------------------------\n\n"
+        "Wir hoffen, dass wir dir mit dieser Antwort helfen konnten.\n"
+        "Falls die Informationen nicht ausreichend waren, wende dich bitte an eure interne IT-Abteilung,\n"
         "damit diese ein Ticket in Click Up erstellen kann.\n\n"
         "Wir danken dir und wünschen dir noch einen schönen Tag.\n\n"
-        "LG dein Swiss Tennis CMS Support Team"
+        "Liebe Grüße\n"
+        "Dein Swiss Tennis CMS Support Team"
     )
 
     return jsonify({"antwort": antwort_text})
