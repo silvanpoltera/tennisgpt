@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader, UnstructuredImageLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
@@ -12,27 +12,36 @@ from langchain.chains import LLMChain
 load_dotenv()
 app = Flask(__name__)
 
-# Der Pfad zum Ordner, in dem sich die PDFs befinden
+# Der Pfad zum Ordner, in dem sich die Wissensdateien befinden
 wissen_ordner = "Wissen"
 
 # Erstelle eine leere Liste für alle Dokumente
 documents = []
 
-# Gehe durch alle Dateien im Wissen-Ordner und lade PDFs
+# Gehe durch alle Dateien im Wissen-Ordner und lade sie abhängig vom Typ
 for filename in os.listdir(wissen_ordner):
     file_path = os.path.join(wissen_ordner, filename)
 
-    # Überprüfe, ob die Datei eine PDF ist
     if filename.endswith(".pdf"):
         loader = PyPDFLoader(file_path)
         pdf_docs = loader.load()
         documents.extend(pdf_docs)
 
+    elif filename.endswith(".txt"):
+        loader = TextLoader(file_path, encoding="utf-8")
+        txt_docs = loader.load()
+        documents.extend(txt_docs)
+
+    elif filename.endswith(".png"):
+        loader = UnstructuredImageLoader(file_path)
+        img_docs = loader.load()
+        documents.extend(img_docs)
+
 # Dokumente splitten
 splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 docs = splitter.split_documents(documents)
 
-# Vektorstore
+# Vektorstore erstellen
 embedding = OpenAIEmbeddings()
 vectorstore = Chroma.from_documents(docs, embedding)
 
@@ -80,7 +89,7 @@ def antwort():
     # Antwort generieren
     response = llm_chain.run(frage=frage)
 
-    # Antwort zusammensetzen mit HTML-Formatierung
+    # Antwort zusammenbauen mit HTML
     antwort_text = (
         "<b>Hey lieber Tennis Fan,</b><br><br>"
         f"{response}<br><br>"
