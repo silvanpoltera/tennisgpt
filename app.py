@@ -9,27 +9,36 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
-# Umgebung laden (.env)
+# .env laden
 load_dotenv()
 
-# Flask App
+# Flask App starten
 app = Flask(__name__)
 
-# Pfad zum Wissensordner
+# Pfad zum Wissen-Ordner
 wissen_ordner = "Wissen"
 
-# Dokumente sammeln
+# Zuerst TXT-Dateien laden, dann PDFs
 documents = []
-for filename in os.listdir(wissen_ordner):
-    file_path = os.path.join(wissen_ordner, filename)
 
-    if filename.endswith(".pdf"):
-        loader = PyPDFLoader(file_path)
-        documents.extend(loader.load())
+# Alle Dateinamen auflisten
+alle_dateien = os.listdir(wissen_ordner)
 
-    elif filename.endswith(".txt"):
+# TXT-Dateien laden
+for filename in alle_dateien:
+    if filename.lower().endswith(".txt"):
+        file_path = os.path.join(wissen_ordner, filename)
         loader = TextLoader(file_path, encoding="utf-8")
         documents.extend(loader.load())
+
+# Danach PDF-Dateien laden (nur wenn keine gleichnamige TXT existiert)
+for filename in alle_dateien:
+    if filename.lower().endswith(".pdf"):
+        txt_name = filename.replace(".pdf", ".txt")
+        if txt_name not in alle_dateien:
+            file_path = os.path.join(wissen_ordner, filename)
+            loader = PyPDFLoader(file_path)
+            documents.extend(loader.load())
 
 # Dokumente intelligent splitten
 splitter = RecursiveCharacterTextSplitter(
@@ -39,11 +48,11 @@ splitter = RecursiveCharacterTextSplitter(
 )
 docs = splitter.split_documents(documents)
 
-# Vektorstore
+# Vektorstore erstellen
 embedding = OpenAIEmbeddings()
 vectorstore = Chroma.from_documents(docs, embedding)
 
-# System Prompt für KI
+# System-Prompt definieren
 system_prompt = (
     "Du bist ein digitaler CMS-Experte für das speziell entwickelte Swiss Tennis CMS, "
     "basierend auf einem individuellen PHP-Framework.\n\n"
@@ -53,7 +62,7 @@ system_prompt = (
     "- Keine Markdown-Formatierung\n"
     "- 'ß' immer durch 'ss' ersetzen\n"
     "- Umlaute wie ä, ö, ü bleiben\n"
-    "- Keine Begrüssungsformeln innerhalb der Antwort (die Begrüssung wird separat hinzugefügt)\n"
+    "- Keine Begrüssungsformeln innerhalb der Antwort (Begrüssung wird technisch hinzugefügt)\n"
     "- Strukturierte Antworten:\n"
     "    - Pro Thema einen eigenen Abschnitt\n"
     "    - Fettgedruckte HTML-Überschrift für jedes Thema (<b>...</b>)\n"
@@ -72,7 +81,7 @@ system_prompt = (
 prompt = PromptTemplate(input_variables=["frage"], template=system_prompt)
 llm_chain = LLMChain(llm=ChatOpenAI(model="gpt-4", temperature=0), prompt=prompt)
 
-# Endpunkt für Antworten
+# API-Endpunkt
 @app.route("/antwort", methods=["POST"])
 def antwort():
     frage = request.json.get("frage")
@@ -92,10 +101,10 @@ def antwort():
     if quellen:
         quellen_text = "<br><br><b>Hinweis zu den Quellen:</b><br>" + "<br>".join(set(quellen))
 
-    # KI-Antwort holen
+    # Antwort generieren
     response = llm_chain.run(frage=frage)
 
-    # Antwort aufbauen mit Begrüssung + Blöcke + Abstand
+    # Antwort zusammenbauen
     antwort_text = (
         "<h2>Lieber Tennis Fan</h2><br><br>"
         f"<div style='padding: 10px; border: 1px solid #ccc; border-radius: 8px;'>{response}</div><br><br>"
@@ -110,6 +119,6 @@ def antwort():
 
     return jsonify({"antwort": antwort_text})
 
-# Flask App starten
+# App starten
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
