@@ -46,7 +46,19 @@ def antwort():
     frage = request.json.get("frage")
     docs = vectorstore.similarity_search(frage)
     response = chain.run(input_documents=docs, question=frage)
-    return jsonify({"antwort": response})
+
+    # Formatierte Antwort erstellen
+    antwort_text = (
+        "Hey lieber Tennis Fan,\n\n"
+        f"{response}\n\n"
+        "Wir hoffen, dass wir dir mit dieser Antwort helfen konnten. "
+        "Falls die Informationen nicht ausreichend waren, wende dich bitte an eure interne IT-Abteilung, "
+        "damit diese ein Ticket in Click Up erstellen kann.\n\n"
+        "Wir danken dir und wünschen dir noch einen schönen Tag.\n\n"
+        "LG dein Swiss Tennis CMS Support Team"
+    )
+
+    return jsonify({"antwort": antwort_text})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
