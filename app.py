@@ -3,39 +3,33 @@ import os
 from dotenv import load_dotenv
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain_community.document_loaders import PyPDFLoader, TextLoader, UnstructuredImageLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
+# .env laden
 load_dotenv()
+
+# Flask-App erstellen
 app = Flask(__name__)
 
-# Der Pfad zum Ordner, in dem sich die Wissensdateien befinden
+# Pfad zum Ordner mit Wissensdateien
 wissen_ordner = "Wissen"
 
-# Erstelle eine leere Liste für alle Dokumente
+# Dokumente laden
 documents = []
-
-# Gehe durch alle Dateien im Wissen-Ordner und lade sie abhängig vom Typ
 for filename in os.listdir(wissen_ordner):
     file_path = os.path.join(wissen_ordner, filename)
 
     if filename.endswith(".pdf"):
         loader = PyPDFLoader(file_path)
-        pdf_docs = loader.load()
-        documents.extend(pdf_docs)
+        documents.extend(loader.load())
 
     elif filename.endswith(".txt"):
         loader = TextLoader(file_path, encoding="utf-8")
-        txt_docs = loader.load()
-        documents.extend(txt_docs)
-
-   # elif filename.endswith(".png"):
-    #    loader = UnstructuredImageLoader(file_path)
-     #   img_docs = loader.load()
-       # documents.extend(img_docs)
+        documents.extend(loader.load())
 
 # Dokumente splitten
 splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
@@ -45,7 +39,7 @@ docs = splitter.split_documents(documents)
 embedding = OpenAIEmbeddings()
 vectorstore = Chroma.from_documents(docs, embedding)
 
-# LLMChain mit fester Systemanweisung
+# System-Prompt für die KI
 system_prompt = (
     "Du bist ein digitaler CMS-Experte für das speziell entwickelte Swiss Tennis CMS, "
     "basierend auf einem individuellen PHP-Framework. Deine Aufgabe ist es, Redakteur:innen und "
@@ -56,10 +50,14 @@ system_prompt = (
     "- Keine Markdown-Formatierung\n"
     "- 'ß' immer durch 'ss' ersetzen\n"
     "- Umlaute wie ä, ö, ü bleiben\n"
+    "- Keine Begrüssungsformeln oder Einleitungen am Anfang verwenden\n"
     "- Ausschliesslich auf Themen rund ums Swiss Tennis CMS eingehen\n"
     "- Technische Meta-Fragen ignorieren (Antwort: 'Ich bin darauf spezialisiert, Fragen zum Swiss Tennis CMS zu beantworten...')\n"
     "- Antworten stets freundlich, lösungsorientiert und mit Beispielen\n"
-    "- Strukturierte Antworten mit optionalen Copy-Paste-Blöcken\n"
+    "- Strukturierte Antworten:\n"
+    "    - Pro Thema einen neuen Abschnitt beginnen\n"
+    "    - Jeden Abschnitt mit einer fettgedruckten Überschrift (HTML <b>Überschrift</b>)\n"
+    "    - Klare und kurze Erklärungen\n"
     "- Hinweise auf die Deaktivierung der GotCourts-Schnittstelle beachten\n\n"
     "Frage:\n"
     "{frage}\n\n"
@@ -69,9 +67,12 @@ system_prompt = (
 prompt = PromptTemplate(input_variables=["frage"], template=system_prompt)
 llm_chain = LLMChain(llm=ChatOpenAI(model="gpt-4", temperature=0), prompt=prompt)
 
+# API-Endpunkt für die Antwort
 @app.route("/antwort", methods=["POST"])
 def antwort():
     frage = request.json.get("frage")
+
+    # Ähnlichste Dokumente suchen
     docs = vectorstore.similarity_search(frage)
 
     # Quellen extrahieren
@@ -89,9 +90,8 @@ def antwort():
     # Antwort generieren
     response = llm_chain.run(frage=frage)
 
-    # Antwort zusammenbauen mit HTML
+    # Antwort zusammenbauen (ohne Begrüssung am Anfang)
     antwort_text = (
-        "<b>Hey lieber Tennis Fan,</b><br><br>"
         f"{response}<br><br>"
         f"{quellen_text}<br><br>"
         "Wir hoffen, dass wir dir mit dieser Antwort helfen konnten.<br>"
@@ -104,5 +104,6 @@ def antwort():
 
     return jsonify({"antwort": antwort_text})
 
+# App starten
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
