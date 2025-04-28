@@ -1,0 +1,39 @@
+KidsT ennis Downloads
+/kidstennis-downloads G E T
+Returns the list of downloads ordered by title ascending. 
+Output formatting is JSON.
+ 
+Parameters:
+PHP example:
+ 
+Response example:
+ 
+ lang no de, fr, it Language for returned download items.
+Default: de
+limit no 10, 20, 50, 100 Maximum number of returned download items.
+Default: 100Name Required Values Description
+1$token = '{{BEARER_AUTH_TOKEN}}' ;
+2$ch = curl_init ('{{API_URL}}/kidstennis-downloads?lang=de&limit=10' );
+3
+4curl_setopt ($ch, CURLOPT_RETURNTRANSFER , true);
+5curl_setopt ($ch, CURLOPT_HTTPHEADER , array(
+6   'Content-Type: application/json' ,
+7   'Authorization: Bearer '  . $token,
+8));
+9
+10$data = curl_exec ($ch);
+11curl_close ($ch);
+1[
+2  {
+3    "id":"1",
+4    "download_category_id" : "11",
+5    "title":"Statuten" ,
+6    "image": {
+7      "original" :"https://mp:testpage@swisstennis.movepeople.ch/media/2992/2022_statuten_d.jpg"
+8    },
+9    "file": {
+10      "original" :"https://mp:testpage@swisstennis.movepeople.ch/media/2991/2022_statuten_d.pdf"
+11    }
+12  }
+13]
+

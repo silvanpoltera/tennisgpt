@@ -1,0 +1,87 @@
+KidsT ennis News
+/kidstennis-news G E T
+Returns the list of news ordered by date descending. 
+Output formatting is JSON.
+ 
+Parameters:
+PHP example:
+ 
+Response example:lang no de, fr, it de Language for returned news items.
+limit no 10, 20, 50, 100 100 Maximum number of returned news items.
+from no YYYY-MM-DD 
+HH:II:SSn o n e Datetime that considers news datetime and returns 
+entries greater or equal to the parameter value.
+type no normal, notification n o n e Type of news returned. If empty all types are 
+returned.
+personNr no person number 
+(int)n o n e If this parameter is used, then resulting list excludes 
+the items that were read by this personNr (check 
+KidsTennis Read News endpoint details)Name Required Values Default Description
+1$token = '{{BEARER_AUTH_TOKEN}}' ;
+2$ch = curl_init ('{{API_URL}}/kidstennis-news?lang=de&limit=10&from=2021-10-01 13:35:00' );
+3
+4curl_setopt ($ch, CURLOPT_RETURNTRANSFER , true);
+5curl_setopt ($ch, CURLOPT_HTTPHEADER , array(
+6   'Content-Type: application/json' ,
+7   'Authorization: Bearer '  . $token,
+8));
+9
+10$data = curl_exec ($ch);
+11curl_close ($ch);
+1[
+2  {
+3    "id": "4",
+4    "datetime" : "2021-10-07 10:00:00" ,
+5    "title": "Donec euismod odio a placerat congue" ,
+6    "lead": "Morbi feugiat aliquet aliquam. Donec dapibus, justo in blandit eleifend, erat odio aliquet diam, ve
+7    "image": {
+8      "original" : "https://mp:testpage@swisstennis.movepeople.ch/media/27/racket.png"
+9    },
+
+ 
+Response values for code list fields:
+ 
+10    "type": "normal" ,
+11    "role": "all",
+12    "categories" : [
+13      "Category #2"
+14    ],
+15    "iframe_url" : "https://mp:testpage@swisstennis.movepeople.ch"
+16  },
+17  {
+18    "id": "3",
+19    "datetime" : "2021-10-04 08:00:00" ,
+20    "title": "News 3 lorem ipsum dolor sit amet" ,
+21    "lead": "Morbi nulla est, facilisis ut orci quis, congue aliquam urna. Sed urna diam, ullamcorper non nisl i
+22    "image": {
+23      "original" : "https://mp:testpage@swisstennis.movepeople.ch/media/28/tennisball.png"
+24    },
+25    "type": "notification" ,
+26    "role": "kids",
+27    "categories" : [
+28      "Category #1" ,
+29      "Category #2" ,
+30      "Category #3"
+31    ],
+32    "iframe_url" : "https://mp:testpage@swisstennis.movepeople.ch"
+33  },
+34  {
+35    "id": "2",
+36    "datetime" : "2021-10-02 12:00:00" ,
+37    "title": "News 2 lorem ipsum dolor sit amet" ,
+38    "lead": "Morbi nulla est, facilisis ut orci quis, congue aliquam urna. Sed urna diam, ullamcorper non nisl i
+39    "image": {
+40      "original" : "https://mp:testpage@swisstennis.movepeople.ch/media/28/tennisball.png"
+41    },
+42    "type": "notification" ,
+43    "role": "kids_responsible" ,
+44    "categories" : [
+45      "Category #3" ,
+46      "Subcategory #4"
+47    ],
+48    "iframe_url" : "https://mp:testpage@swisstennis.movepeople.ch"
+49  }
+50]
+type normal, notification normal
+role all, kids, kids_responsible allName Values Default
+

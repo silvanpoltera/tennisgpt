@@ -1,0 +1,66 @@
+CompApp Promotions
+/compapp-promotions G E T
+Returns the list of promotions ordered by internal order ascending. 
+Output formatting is JSON.
+ 
+Parameters:
+PHP example:
+ 
+Response example:lang no de, fr Language for returned news items.
+limit no 10, 20, 50, 100 Maximum number of returned news items.Name Required Values Description
+1$token = '{{BEARER_AUTH_TOKEN}}' ;
+2$ch = curl_init ('{{API_URL}}/compapp-promotions?lang=de&limit=10' );
+3
+4curl_setopt ($ch, CURLOPT_RETURNTRANSFER , true);
+5curl_setopt ($ch, CURLOPT_HTTPHEADER , array(
+6   'Content-Type: application/json' ,
+7   'Authorization: Bearer '  . $token,
+8));
+9
+10$data = curl_exec ($ch);
+11curl_close ($ch);
+1[
+2  {
+3    "id": "1",
+4    "title": "Promotion #1" ,
+5    "lead": "Vivamus urna dui, interdum vel sodales in, imperdiet eu massa. Vestibulum ante ipsum primis in fauc
+6    "image": {
+7      "original" : "http://mp:testpage@swisstennis.movepeople.ch/media/28/tennisball.png"
+8    },
+9    "display" : {
+10      "free": "1",
+11      "premium" : "1"
+12    },
+13    "iframe_url" : "http://mp:testpage@swisstennis.movepeople.ch/de/promotions/1/promotion-1.html?display=iframe"
+14  },
+15  {
+16    "id": "2",
+17    "title": "Lorem ipsum dolor sit amet promotion" ,
+18    "lead": "Mauris enim urna, malesuada gravida arcu vitae, maximus faucibus metus. Etiam non erat luctus turpi
+19    "image": {
+
+ 
+ 
+20      "original" : "http://mp:testpage@swisstennis.movepeople.ch/media/28/tennisball.png"
+21    },
+22    "display" : {
+23      "free": "1",
+24      "premium" : "0"
+25    },
+26    "iframe_url" : "http://mp:testpage@swisstennis.movepeople.ch/de/promotions/2/lorem-ipsum-dolor-sit-amet-promo
+27  },
+28  {
+29    "id": "3",
+30    "title": "Vestibulum ante ipsum primis in faucibus orci luctus" ,
+31    "lead": "Proin sollicitudin scelerisque justo, vulputate dignissim nibh viverra vel. Lorem ipsum dolor sit a
+32    "image": {
+33      "original" : "http://mp:testpage@swisstennis.movepeople.ch/media/27/racket.png"
+34    },
+35    "display" : {
+36      "free": "1",
+37      "premium" : "0"
+38    },
+39    "iframe_url" : "http://mp:testpage@swisstennis.movepeople.ch/de/promotions/3/vestibulum-ante-ipsum-primis-in-
+40  }
+41]
+

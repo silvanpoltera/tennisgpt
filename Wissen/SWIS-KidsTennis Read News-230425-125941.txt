@@ -1,0 +1,40 @@
+KidsT ennis Read News
+/kidstennis-read-news P O S T
+Mark news items as read by specific user (personNr).
+Returns success status and an error message if needed. Output formatting is JSON.
+Request Body (JSON):
+PHP example:
+ 
+Response example (SUCCESS):
+ 
+Response example (ERROR):
+1{
+2  "personNr" : 12345678 ,
+3  "ids": [1,2,3,4]
+4}
+1$token = '{{BEARER_AUTH_TOKEN}}' ;
+2$ch = curl_init ('{{API_URL}}/kidstennis-read-news' );
+3$data = [
+4'personNr'  => 12345678 ,
+5'ids' => [1, 2, 3, 4],
+6];
+7$json = json_encode ($data);
+8
+9curl_setopt ($ch, CURLOPT_RETURNTRANSFER , true);
+10curl_setopt ($ch, CURLOPT_POST , true);
+11curl_setopt ($ch, CURLOPT_HTTPHEADER , array(
+12   'Content-Type: application/json' ,
+13   'Authorization: Bearer '  . $token,
+14));
+15curl_setopt ($ch, CURLOPT_POSTFIELDS , $json);
+16
+17$data = curl_exec ($ch);
+18curl_close ($ch);
+1{
+2    "success" : true
+3}
+1{
+2    "success" : false,
+3    "message" : "Input parameter personNr is empty!"
+4}
+

@@ -1,0 +1,76 @@
+KidsT ennis Send Notifications
+/kidstennis-send-notifications P O S T
+Send notifications to recipients. 
+Returns success status and an error message if needed. Output formatting is JSON.
+Parameters:
+ 
+Request Body (JSON):
+PHP example:lang no de, fr, it de Language for sending message.
+title yes  n o n e Title of notification
+message yes  n o n e Message of notification
+recipients yes  n o n e Array of recipients
+replyToEmail no  n o n e reply-to email address
+replyToName no  n o n e reply-to nameName Required Values Default Description
+1{
+2  "title": "Some notification title" ,
+3  "message" : "Some notification message"
+4  "recipients" : [
+5    {
+6        "firstName" : "John",
+7        "lastName" : "Doe",
+8        "email": "john.doe@domain.com"
+9    },
+10    {
+11        "firstName" : "Samantha" ,
+12        "lastName" : "Doe",
+13        "email": "samantha.doe@domain.com"
+14    }
+15  ],
+16  "replyToEmail" : "replyto@domain.com" ,
+17  "replyToName" : "Reply To"
+18}
+1$token = '{{BEARER_AUTH_TOKEN}}' ;
+2$ch = curl_init ('{{API_URL}}/kidstennis-send-notifications?lang=de' );
+3$data = [
+4'title' => 'Some notification title' ,
+5'message'  => 'Some notification message' ,
+
+ 
+Response example (SUCCESS):
+ 
+Response example (ERROR):
+6'recipients'  => [
+7 [
+8 'firstName'  => 'John',
+9 'lastName'  =>  'Doe',
+10 'email' => 'john.doe@domain.com' ,
+11 ],
+12 [
+13 'firstName'  => 'Samantha' ,
+14 'lastName'  =>  'Doe',
+15 'email' => 'samantha.doe@domain.com' ,
+16 ],
+17 ],
+18 'replyToEmail'  => 'replyto@domain.com' ,
+19 'replyToName'  => 'Reply To' ,
+20];
+21$json = json_encode ($data);
+22
+23curl_setopt ($ch, CURLOPT_RETURNTRANSFER , true);
+24curl_setopt ($ch, CURLOPT_POST , true);
+25curl_setopt ($ch, CURLOPT_HTTPHEADER , array(
+26   'Content-Type: application/json' ,
+27   'Authorization: Bearer '  . $token,
+28));
+29curl_setopt ($ch, CURLOPT_POSTFIELDS , $json);
+30
+31$data = curl_exec ($ch);
+32curl_close ($ch);
+1{
+2    "success" : true
+3}
+1{
+2    "success" : false,
+3    "message" : "Input parameter title is empty!"
+4}
+

@@ -1,0 +1,92 @@
+CompApp News
+/compapp-news G E T
+Returns the list of news ordered by date descending. 
+Output formatting is JSON.
+ 
+Parameters:
+PHP example:
+ 
+Response example:lang no de, fr de Language for returned news items.
+limit no 10, 20, 50, 100 100 Maximum number of returned news items.
+from no YYYY-MM-DD 
+HH:II:SSn o n e Datetime that considers news datetime and returns 
+entries greater or equal to the parameter value.Name Required Values Default Description
+1$token = '{{BEARER_AUTH_TOKEN}}' ;
+2$ch = curl_init ('{{API_URL}}/compapp-news?lang=de&limit=10&from=2021-10-01 13:35:00' );
+3
+4curl_setopt ($ch, CURLOPT_RETURNTRANSFER , true);
+5curl_setopt ($ch, CURLOPT_HTTPHEADER , array(
+6   'Content-Type: application/json' ,
+7   'Authorization: Bearer '  . $token,
+8));
+9
+10$data = curl_exec ($ch);
+11curl_close ($ch);
+1[
+2  {
+3    "id": "4",
+4    "datetime" : "2021-10-07 10:00:00" ,
+5    "title": "Donec euismod odio a placerat congue" ,
+6    "lead": "Morbi feugiat aliquet aliquam. Donec dapibus, justo in blandit eleifend, erat odio aliquet diam, ve
+7    "image": {
+8      "original" : "http://mp:testpage@swisstennis.movepeople.ch/media/27/racket.png"
+9    },
+10    "type": "normal" ,
+11    "licence" : "normal" ,
+12    "subscription" : "free",
+13    "role": "all",
+14    "categories" : [
+15      "Category #2" ,
+16      "CompApp"
+
+ 
+Response values for code list fields:
+17    ],
+18    "iframe_url" : "http://mp:testpage@swisstennis.movepeople.ch"
+19  },
+20  {
+21    "id": "3",
+22    "datetime" : "2021-10-04 08:00:00" ,
+23    "title": "News 3 lorem ipsum dolor sit amet" ,
+24    "lead": "Morbi nulla est, facilisis ut orci quis, congue aliquam urna. Sed urna diam, ullamcorper non nisl i
+25    "image": {
+26      "original" : "http://mp:testpage@swisstennis.movepeople.ch/media/28/tennisball.png"
+27    },
+28    "type": "notification" ,
+29    "licence" : "licenced" ,
+30    "subscription" : "premium" ,
+31    "role": "all",
+32    "categories" : [
+33      "Category #1" ,
+34      "Category #2" ,
+35      "Category #3" ,
+36      "CompApp"
+37    ],
+38    "iframe_url" : "http://mp:testpage@swisstennis.movepeople.ch"
+39  },
+40  {
+41    "id": "2",
+42    "datetime" : "2021-10-02 12:00:00" ,
+43    "title": "News 2 lorem ipsum dolor sit amet" ,
+44    "lead": "Morbi nulla est, facilisis ut orci quis, congue aliquam urna. Sed urna diam, ullamcorper non nisl i
+45    "image": {
+46      "original" : "http://mp:testpage@swisstennis.movepeople.ch/media/28/tennisball.png"
+47    },
+48    "type": "notification" ,
+49    "licence" : "licenced" ,
+50    "subscription" : "premium" ,
+51    "role": "ic_captain" ,
+52    "categories" : [
+53      "Category #3" ,
+54      "Subcategory #4" ,
+55      "CompApp"
+56    ],
+57    "iframe_url" : "http://mp:testpage@swisstennis.movepeople.ch"
+58  }
+59]
+type normal, notification normal
+licence normal, licenced normal
+subscription free, premium free
+role all, ic_captain, jic_captain, tc_captain, referee, 
+officialallName Values Default
+

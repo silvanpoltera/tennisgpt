@@ -1,0 +1,653 @@
+Manual
+Swiss Tennis (CMS)
+Empfänger Swiss Tennis
+  Roger-Federer-Allee 1
+  2501 Biel
+Agentur  MovePeople AG
+  Tobias Stucki
+  Giesshübelstrasse 40
+  8045 Zürich
+Datum  11. Januar 2023 
+Version  2.0
+
+Online bewegen.2Inhaltsverzeichnis
+Manual – Swiss Tennis (CMS)
+Einleitung 3
+Diagramm 4
+Login  5
+Verwalten von Seiten 5
+Einstellungen einer Seite 6
+MoveEditor 7
+Suchfunktionen 8 
+Content-Module 9 
+System-Module 11 
+Definition einer Seite 18 
+Grundsätzliche Seitengestaltung 22 
+Cronjobs 26 
+Exkurs Schreibweisen bei Swiss Tennis 27
+
+Online bewegen.3Einleitung
+Swiss Tennis (CMS)
+Play Tennis  
+ 
+Auf Play Tennis werden die Tennisgrundlagen für alle 
+Interessierten und auch für Tennisneulinge zur Verfügung 
+stehen. Einen Tennisclub finden, einen Platz buchen (über 
+das Widget mit unserem strategischen Partner GotCourts 
+(www.gotcourts.com), Regeln kennen lernen und Regle-
+mente finden, das und vieles mehr soll über Play Tennis 
+möglich sein.  swisstennis.ch als digitaler Dreh- und Angelpunkt im Schweizer Tennis. 
+Rund 53.5 Millionen Page Views zählte die Website von Swiss Tennis letztes Jahr. Das sind im Durch-
+schnitt rund 147 000 Seitenabrufe täglich. Diesem Interesse will Swiss Tennis künftig mit einem moder -
+nen digitalen Auftritt gerecht werden. Denn die Swiss Tennis-Website wurde letztmals 2015 rundum 
+erneuert. Damit war die Zeit reif für eine komplette Überarbeitung und Neugestaltung.
+swisstennis.ch soll dabei die zentrale digitale Anlaufstelle für alle Interessensgruppen im Schweizer 
+Tennis werden. Ob Tennisspieler:innen, Trainer:innen, Clubs und Center, Eltern oder Tennisinteressierte 
+und Fans: Sie alle sollen auf der neuen Website die auf ihre jeweiligen Interessen zugeschnitten Inhalte 
+finden.
+Improve Tennis  
+ 
+Improve Tennis wird die Drehscheibe für alle, die ihr Spiel 
+oder das Spiel von Anderen auf das nächste Level bringen 
+wollen.Der Bereich «Play & Improve» richtet sich dabei 
+an alle, die ihr Tennisspiel verbessern wollen: Hier werden 
+Tipps und Tricks aus den Gebieten Technik, Taktik, Kondi-
+tion und Mental zu finden sein (inkl. Übungssammlung). 
+«Teach & Learn» ist die Plattform für Inhalte der Aus- und 
+Fortbildung für Trainer:innen und Funktionär:innen – ein 
+Serviceportal mit vielen Praxistipps und Dienstleistungen.  
+Pro Tennis  
+ 
+Bei Pro Tennis wird sich alles um die Schweizer Profi-
+Spieler:innen und jene, die auf dem Weg dorthin sind, 
+drehen. Hier werden Sie den Spieler:innen und Teams 
+rund um die Welt folgen können und alle Informationen 
+zu den internationalen Turnieren in der Schweiz finden. 
+Der Bereich «Perform & Succeed» fasst die Themen der 
+Abteilung Spitzensport zusammen und richtet sich an 
+Kaderspieler:innen, deren Eltern und Coaches.  Kids Tennis  
+ 
+Der Bereich Kids Tennis – das Portal der Kids Tennis High 
+School – wird nach dem Relaunch von swisstennis.ch, im 
+Verlaufe des Jahres, ebenfalls umgestaltet.  
+myTennis  
+ 
+myTennis auf dem nächsten LevelHerzstück der neuen di-
+gitalen Umgebung von Swiss Tennis soll der rundum erneu-
+erte, geschützte Login-Bereich myTennis werden. myTennis 
+wird neu als progressive Web App* verfügbar sein und eine 
+Menge neuer Optionen und personalisierbarer Inhalte bie-
+ten. Resultate finden (ob die eigenen oder die von anderen 
+Spieler:innen), das monatliche Ranking abfragen oder 
+Turnieranmeldungen verwalten – dies und vieles mehr wird 
+auf myTennis möglich sein.  
+About Swiss Tennis  
+ 
+Hier sind alle Informationen zu finden, welche Sie über den 
+Dachverband des Schweizer Tennisssprots wissen müssen. 
+Von unserem Restaurant im Nationalen Leistungszenter, 
+bis hin zu unseren Mitarbeitern.  
+Media  
+ 
+Die Anlaufstelle für Medienschaffende, oder für alle die 
+gerne Bilder, Videos und die aktuellsten Neuigkeiten zum 
+Tennissport konsumieren.  
+
+Online bewegen. 4Diagramm
+Swiss Tennis (CMS)
+
+
+Online bewegen.5Backend
+Swiss Tennis (CMS)
+ Login  
+ 
+Um die Website bearbeiten zu können, müssen Sie sich über folgenden Link und Zugangsdaten einloggen:  
+ 
+Link:  https://swisstennis.ch/admin/  
+Benutzername:  E-Mail  
+Passwort:  Individuelles Passwort  
+Verwalten von Seiten (Page -> Menu)  
+ 
+Anzeige der Seitenstruktur als Tree- oder Block-Navigation. Seiten können hinzugefügt, bearbeitet, gelöscht und positioniert 
+werden. Im Editiermodus können folgende Aktionen ausgeführt werden.
+Preview einer Seite  
+Anzeige jeder Seite als Preview für Desktop, Tablet (landscape) und Mobile. Die Such-Funktion über das gesamte System ist 
+oben rechts als Lupe gekennzeichnet.
+SEO Wizard  
+Für jede Seite werden SEO-Informationen hinterlegt. Damit nicht jede Seite einzeln geöffnet werden muss, kann der SEO 
+Wizard genutzt werden. Achtung: Zu definieren mit Marketing/Kommunikation.
+
+
+Online bewegen.6Sprachwahl:  Oben rechts über die Länderflagge 
+Parent menu:   Ein übergeordnete Seite kann selektiert werden (Definition einer Unterseite) 
+Type:   Platzierung des Navigationspunktes (main menu = Hauptnavigation, hidden menu =  
+   versteckte Seite) 
+Special menu:  Anzeige des Navigationspunktes in Rot 
+Hide footer:  Seite ohne Footer anzeigen 
+Display as lightbox: Die Seite wird als Pop-Up angezeigt 
+Display as dark lightbox: Die Seite wird als Pop-Up angezeigt (dunkel) 
+Order:    Definition der Reihenfolge (kann in der Übersicht mit Drag & Drop verschoben werden) 
+External URL:  Eingabe, wenn auf eine externe oder interne Seite verlinkt werden soll 
+URL slug:  Darstellung der URL im Browser (nur Kleinbuchstaben und ‚-‘ zur Verbindung von Wörtern). Der 
+   URL slug wird automatisch von System vergeben resp. korrigiert. Auch manuelle Eingabe möglich 
+Title:   Eingabe des Seitentitels (pro Sprache) 
+ 
+ Einstellung einer Seite  
+ 
+Jede Seite verfügt über ein paar Grundeinstellungen. Einige sind Pflichtfelder, andere können situativ eingesetzt werden.
+Neue Seite erstellen (Inhalt einer anderen Seite kopieren)  
+ 
+Beim Erstellen von neuen Seiten, ist es am Besten, wenn man sich auf Basis der existierenden Seiten aussucht, welche 
+Seite davon am besten deine Vorstellungen erfüllt. Auf Grund dieser Auswahl kann die gewählte Seite einfach kopiert und 
+inhaltlich angepasst werden:
+Ist die Seite bereits auf DE oder FR erfasst, kann und sollte dies einfach für die jeweils andere Sprache kopiert werden. Da-
+nach muss nur noch der Inhalt übersetzt werden und die jeweiligen Links angepasst werden! Dies stellt sicher, dass die Seiten 
+beider Sprachen immer die gleich Struktur aufweisen!
+
+
+Online bewegen.7MoveEditor  
+ 
+Der MoveEditor ist ein moderner Pagebuilder zur Kreation und Verwaltung von einzelnen Seiteninhalten/-elementen. 
+Der MoveEditor ist in drei Ebene aufgebaut und besitzt im Grundsatz folgende Möglichkeiten:.  
+ 
+ 
+ 
+ 
+ 
+ 
+1.  Zeile (Row) 
+Definition der Aufteilung sowie spezifische Einstellung pro Reihe 
+ 
+ 
+ 
+ 
+ 
+ 
+2.  Spalte (Column) 
+Spezifische Einstellung pro Spalte
+ 
+ 
+3.  Inhalt (Text, Bild, Modul, etc.) 
+Über das + kann das gewünschte Element hinzugefügt und über den Bearbeiten-Modus verwaltet werden.In Clipboard kopieren Bearbeiten Hinzufügen Duplizieren Bewegen Löschen
+
+
+Online bewegen.8Full CMS Search (oben rechts)
+ 
+Suchbegriff eingeben und mit Enter bestätigen. Danach kann es einige Sekunden dauern, da das ganze System durchforstet 
+wird.  
+ 
+Nach gefundenen Resultaten zeigt es alle Einträge sortiert nach Modul an:Suchfunktionen
+Media Library Search
+
+Online bewegen.9Text
+ 
+Textbearbeitung mit Editor.  
+ 
+Wichtig: Die Schriftgrösse, -art und -farbe nicht einstellen. Die Formatierung nur mit den Absatzformaten sowie fett/kursiv 
+vornehmenContent-Module
+Image
+ 
+Einfügen und anpassen eines Bildes.  
+ 
+Wichtig: Width und Height einstellen, nur wenn das Bild das exakte Format hat. Ansonsten jeweils nur eines der Felder aus-
+füllen mit 100% oder auto, damit das Bild nicht verzerrt dargestellt wird.
+Breadcrumb
+ 
+Brotkrümmel. Diese werden von System automatisch erstellt und zeigt auf, wo sich der User aufhält.
+Button
+ 
+Ein Button kann mit diesem Modul hinzugefügt werden, wo jeweils die Farbe Rot und Blau vordefiniert zur Verfügung steht.  
+ 
+Zusatz-Info: Ein Button kann auch über den Text-Editor mit einem Link erstellt werden. Das gewünschte Wort selektieren, 
+das Link-Symbol anwählen und dann auf ‚Erweitert‘ bei der Formatvorlagenklasse das Wort ‚Button‘ eintragen.
+Accordeon
+ 
+Ein Akkordeon ist ein Design-/Strukturelement, um Inhalte zu bündeln. 
+In der Verwaltung kann definiert werden, welches der einzelnen ‚Panels‘ 
+geöffnet dargestellt werden soll.
+Tabs
+ 
+Siehe Accordeon. Der Unterschied ist lediglich die Darstellung, Tabs wer -
+den nebeneinander angezeigt.
+
+
+Online bewegen.10Nested row
+ 
+Eine Nested row kann verwendet werden, wenn innerhalb einer Row mehrere Rows verwendet werden. Das vereinfacht die 
+Einstellungen jeder einzelnen Row und bietet mehr Flexbilität in der Seitengestaltung.
+Empty space
+ 
+Abstände zwischen einzelnen Elementen können über die Einstellungen der Row definiert werden oder mit dem Einfügen 
+eines Empty space.  
+ 
+Wichtig: Jeweils die Zahl mit px ergänzen (z. B. 50px)
+Video
+ 
+Einzelne Videos können an jeder beliebigen Stelle hinzugefügt werden. Aktuell lässt das Modul nur den Upload resp. die Se-
+lektion eines Videos aus der Media Library zu.
+
+
+Online bewegen.11Contact (Standard-Modul)
+ 
+Verfügbare Kontaktformulare werden hier verwaltet. Beim Hinzufügen im MoveEditor kann das gewünschte Formular für die 
+Seite ausgewählt werden.System-Module
+Ads (Custom-Modul)
+ 
+Das individuelle Modul für die Verwaltung der Werbebanner (Fullbanner mit 728px x 90px).  
+ 
+Einstellungsmöglichkeiten: URL, Start- und Enddatum, Limit der Impressionen, Wahl der Anzeige (Seite) 
+Statistik: Es stehen einfache Statistiken für jede Ad zur Verfügung
+Club regions (Custom-Modul)
+ 
+Alle Regionen sind vordefiniert, Anpassungen sind nicht notwendig
+Dokument-Upload von Canto (Schnittstelle)
+ 
+Wie können Bilder und Files von Canto in das MoveCMS migriert werden und welche Ordner stehen dabei zur Verfügung.  
+ 
+Möglichkeiten zum Uploud:  
+ 
+– Über https://swsstennis.canto.de 
+– Direkt über die MediaLibrary des MoveCMS 
+ 
+ 
+ 
+ 
+Für beides kann folgender Zugang verwendet werden, sofern kein eigener besteht.  
+ 
+informatik@swisstennis.ch /  SwissTennis2022! 
+ 
+Ordner für Bilder 
+ 
+– Action: Fotos von Tennisaction auf den Courts, Machtbilder, Tennisspieler:innen in Aktion 
+– Athleten Porträts: Fotos der Athlet:innen für die Darstellung auf der Website unter Pro Tennis 
+– Emotions: Jubelbilder, Freude, Hand-Shakes, Emotionen 
+– Events: Fotos (insbesondere auch ganze Bildserien) die einem Event zugeordnet werden können (z.B. Interclub,  
+ Forum, Delegiertenversammlung) 
+– Infrastruktur: Fotos des Nationalen Leistungszentrums von Swiss Tennis und der Swiss Tennis Arena, Bilder vo 
+ Courts, Rackets, Balls 
+– Mitarbeiter Portraits: Fotos der Mitarbeiter:innen für die Darstellung im auf der Website unter Organigramm und 
+ unter Kontakt  
+– News: Bilder die v.a. zur Illustration von Newsmeldungen verwendet werden und sonst keiner Kategorie zugeordnet 
+ werden können (z.B. Monday Update)
+
+
+Online bewegen.12Ordner für Dokumente 
+ 
+– Ausbildungsunterlagen: Dokumente aus dem Bereich Ausbildung/Entwicklung 
+– Generelle Dokumente: übergeordnete Unterlagen wie die Swiss Tennis Statuen, Geschäftsbericht,  
+ Marketingunterlagen usw.  
+– Jobs: Stellenausschreibungen 
+– Reglemente: Turnierreglemente, Transferreglement, Klassierungsreglement usw.  
+– Speisekarte: Wochenangebot des Restaurant Top Spin 
+– Statistiken: DC/BJKC Nation Activity, DC/BJKC Player Win-Los, TOP 100 ATP/WTA  
+– Thumbnails: Auf der Website werden alle Dokumente, die als Download erfasst wurden unter Media > Downloads  
+ automatisch gesammelt dargestellt. Damit diese Darstellung ansprechend aussieht, ist es wichtig, für  
+ Dokumente ein Thumbnailbild zu erfassen, hier abzuspeichern und dem Download auf der Website entsprechend 
+ zuzuweisen (siehe Erklärung weiter unten) 
+ Die App “Snipping Tool” bietet eine einfache Möglichkeit, von der Dokumenttitelseite ein Bild zurecht zu schneiden 
+ und als JPG-Datei abzuspeichern 
+– Turnierinformationen: Spielpläne, Entrylists, Captains Manual, etc.  
+ 
+ 
+Ordner für Grafiken 
+ 
+– Generelle Grafiken: Grafiken von Marketingmassnahmen 
+– Placeholders: Grafik der Spieler: in von Play & Improve sowie für Mitarbeiter:innen und Spieler:innen 
+– Übungssammlung: Grafiken und Bilder für die Übungssammlung von Play & Improve
+Ordner für Logos 
+ 
+Im Ordner Logos werden die Logos von Swiss Tennis, die 
+Turnierlogos, die Sponsorenlogos usw. abgespeichert. Für 
+Logos sollten freigestellte PNGs verwendet werden. Bei 
+Bildern JPGs.Ordner für Videos 
+ 
+Im Ordner Videos werden Video-Dateien abgespeichert.
+Update /  Ersatz von Dokumenten 
+ 
+Sollen bestehende Dokumente, welche bereits im CMS erfasst sind, oder bereits veröffentlicht wurden, kann durch ein Upload 
+des neuen Dokuments in Canto, dieses automatisch überall wo es gebraucht wird ersetzt werden.
+Wichtig: Dass der automatische Austausch funktioniert, muss das Dokument exakt den gleichen Namen haben wie das 
+neue.
+
+Online bewegen.13Download (Custom-Modul)
+ 
+Es gibt zwei mögliche Module:  
+ 
+–  Downloads: Dieses Modul wird für die Übersicht verwendet und es werden jeweils alle Downloads angezeigt (siehe 
+‚Media -> Downloads‘). Die Darstellung ist nur für full-width definiert.  
+–  Downloads by category: Dieses Modul kann jedem beliebigen Ort im MoveEditor eingefügt werden. Sobald 
+eingefügt, kommt die Auswahl der gewünschten Downloads. Ist der Inhalt verschoben, kann mit der Checkbox ‚no 
+padding‘, der Abstand links entfernt werden.
+ 
+Übersetzung der Titel (Downloads)
+In der Modulübersicht neben dem Wort Downloads auf das Dreieck klicken, Ordner Categories anwählen. Dann erscheinen 
+die Kategorien, diese können mit dem Sprachwechsel (oben rechts) entsprechend ausgewählt und bearbeitet werden.
+
+
+Online bewegen.14E-Mails (Standard-Modul)
+ 
+Alle E-Mails, für den internen sowie externen Bedarf werden hier verwaltet - sowohl der Inhalt als auch der/die Empfänger. 
+Über die Preview-Funktion in der Übersicht kann die E-Mail ohne Versenden angesehen werden.Education (Custom-Modul)
+ 
+Dieses Modul wird nur für die Übersicht benötigt.
+Thumbnails hinzufügen (Downloads)
+ 
+Erfasst man einen Download, hat man die Option ein Thumbnail zu erfassen. Dieses muss separat in Canto unter dem 
+Ordner: Thumbnails vorgängig bereitgestellt werden.
+ 
+Wird das Auswählen eines solchen Thumbnails unterlassen, nimmt das System automatisch ein voreingestelltes Thumbnail, 
+welches für alle Downloads ohne Thumbnails zum Einsatz kommt.
+Dieser Platzhalter (auf für Athleten) kann unter: Administration /  Main Settings /  Design /  Documents /  Default Placeholder 
+geändert werden:
+
+
+Online bewegen.15Image gallery (Standard-Modul)
+ 
+Es können beliebige viele Kategorien erstellt werden und für jede Kategorie können wiederum unterschiedliche 
+Alben angelegt werden. Im MoveEditor kann dann jeweils ausgewählt werden, welche der erstellten Galerien auf der 
+entsprechenden Seite angezeigt wird.
+Jede Galerie hat ein Titelbild (oben) und die restlichen Bilderwerden unten hinzugefügt. Mit Drag & Drop können die Bilder 
+sortiert werden. Zusätzlich kann für jedes Bild eine Bildunterschrift ergänzt werden.Guideline slider (Custom-Modul)
+ 
+Die Inhalte des Player Personality Guide werden hier definiert. Für jede Box gibt es einen Eintrag in diesem Modul, die Anzahl 
+der Boxen ist auf 12 limitiert (je 4 pro Thema).Exercises (Custom-Modul)
+ 
+Ein sehr umfassendes Modul zur Anzeige der unterschiedlichen Übungen. Jede Übung kann spezifisch zugewiesen werden, 
+anhand folgender Einstellungen:
+– Alter oder Niveau (je nach Kategorie) /  nur ein Kriterium relevant (wird beim Submodul ‚Topics‘ definiert)
+– Hauptkategorie (z.B. Technik)
+– Unterkategorie (z.B. Aufschlag)
+Jede Übung kann mit dem MoveEditor frei gestaltet werden. Die Tabs im Editor fungieren hierbei als Slider im Frontend 
+(Desktop-Ansicht). Die Anzahl der Tabs ist nicht limitiert, jedoch hat der Slider nur eine beschränkte Breite.
+News (Custom-Modul)
+ 
+Ein sehr umfassendes Modul im System der Swiss Tennis.  
+ 
+Die SDA-News werden mittels Schnittstelle in das MoveCMS importiert, zudem können eigenen News-Beiträge manuell 
+erfasst werden. Für jede News kann definiert werden, auf welcher Seite diese angezeigt werden.  
+ 
+–  Display in categories: In welcher Kategorie wird die News angezeigt. Die Kategorie wird auch der News als roter 
+Sticker ergänzt
+– Display in menues: Auf welcher/n Seite/n wird die News angezeigt
+–  Is shown on gotcourts?: Ist das ausgewählt, werden die Informationen in den folgenden Felder an GotCourts via 
+API-Schnittstelle übermittelt
+–  CompApp: Es wird definiert, wo (News oder Push-Nachricht), für wenn (alle oder lizenzierte Spieler) und für 
+welches Abo (kostenlos oder premium) die Information publiziert wird. Die Übermittlung erfolgt automatisch via 
+API-SchnittstelleEvents (Custom-Modul)
+ 
+Die Inhalte entsprechen dem Turnierkalender. Neue Turnier können in diesem Modul erfasst werden und werden anhand der 
+Klassifizierung automatisch am richtigen Ort angezeigt. Die Sortierung ist nach Datum.
+
+Online bewegen.16People (Custom-Modul)
+ 
+Das Modul People wird komlett über Canto gesteuert. Ausnahme: Das Löschen von Personen sowie das Ändern der Reihen-
+folge.  
+ 
+Erfassen neuer Personen: 
+ 
+– Profilbild nach Canto hochladen:  
+ https://swisstennis.canto.de /  Web Publishing /  Bilder /  Mitarbeiter Portraits 
+ 
+ Danach unter den Metadaten /  Custom Fields alle nötigen Felder ausfüllen sowie die Abteilung anwählen:
+ 
+ Ist dies gemacht, wird dieses Modul 1 Mal am Tag (siehe Liste zu Synchronisationen) synchronisiert.  
+ 
+ Achtung: Das Feld Lizenznummer ist nur für Athleten relevant.Partners (Custom-Modul)
+ 
+Die Partner können in unterschiedliche Branchen/Bereiche kategorisiert werden (Categories). Anschliessend kann jeder Part-
+ner der entsprechenden Kategorie zugewiesen werden.  
+ 
+Wichtig: Wenn ein Partner unten im Footer auf allen Seiten angezeigt werden soll, muss das Flag ‚Is featured?‘ aktiviert sein. 
+Die Sortierung erfolgt überall anhand der Sortierung in diesem Modul.Newsletter archive (Custom-Modul)
+ 
+Ein sehr einfaches Modul zur Erfassung der vergangenen Newsletter. Nur ein Datum, der Titel sowie der Link zum Newsletter 
+sind erforderlich.
+
+
+Online bewegen.17Player development (Custom-Modul)
+ 
+Der entsprechende Download als PDF wird hier entsprechen der Kategorie sowie des Themas hinterlegt. Verwendet werden 
+diese Informationen im Player Development Program.
+Statistics counter (Custom-Modul)
+ 
+Alle gewünschten Counter werden hier eingetragen. Die Statistik-Zahlen können anschliessend mit dem MoveEditor an jeder 
+beliebigen Stelle eingesetzt werden. Das Modul ist nur auf full-width ausgerichtet.Social (Standard-Modul)
+ 
+Definition der Social Media-Kanäle.Promotions (Custom-Modul)
+ 
+Ein eher umfassendes Modul.  
+ 
+Es müssen viele relevante Informationen zu einer laufenden Promotion eingetragen werden. Ebenfalls steht der MoveEditor 
+zur Verfügung, um die Detailseite flexibel zu gestalten.  
+ 
+–  Is shown on GotCourts? Es muss noch definiert werden, wo genau die Promotion in GotCourts angezeigt wird 
+sowie ein paar relevante Felder ausgewüllt werden. Sobald aktiv und vollständig, wird die Promotion an GotCourts 
+übermittelt.
+–  CompApp: Die Promotion kann wahlweise nur für kostenlose oder Premium-Nutzer oder für beide angezeigt 
+werden.Player (Custom-Modul)
+ 
+Alle Player werden direkt über die API-Schnittstelle der SWT DB importiert. Eine Anpassung im MoveCMS ist nicht erforder -
+lich.Löschen einer Person: 
+Bild auf Canto entfernen oder einfach Metadaten /  Custom Fields bereinigen sowie Person aus dem Modul People im CMS 
+löschen.  
+ 
+Bild einer Person ersetzen: 
+Neues Bild in den selben Ordner in Canto laden. Achtung: Muss exakt den selben Dateinamen wie das alte Bild haben.  
+ 
+Personenreihenfolge für Organigramm anpassen: 
+Per Drag and Drop im CMS in die Richtige Position rücken.  
+
+Online bewegen.18Header-BereichDefinitionen einer Seite
+Seiten-Navigation. 1
+23
+4
+5
+6
+1
+Hauptnavigation. Jede Seite hat ihre eigene Haupt- und Sub-Navigation. Zusätzlich können bei der Sub-Navigation 
+entweder 3 einzelne Seiten (Custom), die Featured Events oder Featured News angezeigt werden.
+2
+Service-Navigation und Sprachwahl.3
+Special-Menü. Auf jeder Seite gibt es die Option ‚Special menu‘ anzuwählen. Sobald aktiv, wird der Navigationspunkt 
+in Rot dargestellt.4
+Titel der Seite. Der Titel wird immer als H1 (Überschrift 1) definiert und ist wahlweise weiss oder blau, je nach Lesbar -
+keit des Hintergrundbildes.5
+Breadcrumbs. Die Brotkrümel widerspiegeln den Standort des Users und werden automatisch erstellt.6
+
+Online bewegen.19Header-Bild anpassen
+Landingpage
+Subpage
+Headerbild 
+ 
+Die Bilder haben eine 
+fix definierte Höhe und 
+das Format passt sich 
+entsprechend an.  
+ 
+Um den bestmöglichen 
+Bildausschnitt zu erhal-
+ten, kann die Bildposition 
+pro Bild jeweils definiert 
+werden.
+
+
+Online bewegen.20
+Content-Bereich
+Sub-Navigation. Im MoveCMS kann diese Subnavigation mit dem Modul ‚Submenu‘ angezeigt werden. 1 2
+3
+4
+5
+6
+1
+Haupttitel. Der Titel wird immer als H2 (Überschrift 2) in blau und fett definiert.  
+Ausnahme: Wenn ein Pop-Up erstellt wird, ist der erste Titel als H1 (Überschrift 1) in Rot zu definieren.2
+Lead. Der Lead-Text soll für die Lesbarkeit ein wenig herausgehoben werden (sofern sinnvoll). Dieser Text wird als H4 
+(Überschrift 4) definiert. Der Lead folgt immer nach dem Titel.3
+Lauftext. Dieser Inhalt ist immer mit dem Absatzformat ‚normal‘ definiert.4
+Tabelle. Eine Tabelle kann über das Modul ‚Text‘ hinzugefügt werden.  
+Die Nutzung einer Tabelle ist aufgrund von Darstellungsproblemen auf mobilen Geräten nicht zu empfehlen.5
+Button. Ein Button kann als eigenes Modul ergänzt werden. Es stehen die Farben Rot und Blau für einen Button zur 
+Verfügung. Alternativ kann ein Button direkt im Text eingefügt werden (siehe Seite 6 ‚Button‘)6
+
+Online bewegen.21
+Downloads & Partner
+Downloads. Zur Auswahl im MoveEditor das Modul ‚Downloads by category‘ auswählen. Mit diesem Modul können 
+die einzelne Files zur Ansicht selektiert werden. Je nach Implementierung können die Downloads ein wenig nach 
+rechts verschoben sein, dann die Option ‚no padding‘ anwählen.1
+2 3
+4
+5
+1
+Adresse. Die Adresse wird immer exakt so dargestellt und als reiner Text definiert.2
+Kontaktperson. Um eine Kontaktperson anzuzeigen, kann im MoveEditor das Modul ‚Contact person‘ hinzugefügt 
+werden. Im Modul kann dann die gewünschte Person zur Anzeige selektiert werden.3
+Parter. Diese Partner sind ‚Featured Partner‘ und können bei der Übersicht der Partner entsprechend definiert wer -
+den. Das Modul ‚Featured Partners‘ kann an jeder beliebigen Stelle (über den MoveEditor) hinzugefügt werden.4
+Ad. Die Anzeigen werden in einem separaten Modul ‚Ad‘ verwaltet. Das Modul kann anschliessend an jeder beliebi-
+gen Stelle (über den MoveEditor) hinzugefügt werden.5
+
+Online bewegen.22Grundlegende bestimmt das Marketing oder Kommunikation, was die Pflichten und Rechte bei der Erstellung einer 
+Seite beinhalten.  
+ 
+Es kann aber folgende Empfehlung abgeben werden:  
+ 
+Landingpages 
+– Header inklusive 2 Call to Action Boxen 
+– Banner 
+– Evt. Related News 
+– Versch. Content Module 
+– Sponsoren Modul (Featured Partners) 
+– Banner 
+– Swiss Tennis Footer 
+ 
+Sub Pages 
+– Dort wo sinnvoll Header 
+– Breadcrumbs 
+– (Sub Menu) 
+– Haupttitel : Überschrift 2 fett 
+– Teaser Text : Überschrift 4 fett 
+– Standard Text 
+– Downloads 
+– Links 
+– Kann eine Kontaktperson angegeben werden: Kontakt (Swisstennis + Kontaktperson) durch Kopieren einer 
+ Row (oben rechts: Copy to Clipboard):  
+ 
+ 
+ 
+ 
+– Sponsoren Modul (Featured Partners) 
+– Banner 
+– Swiss Tennis Footer
+Grundsätzliche Seitengestaltung
+
+Online bewegen.23Paddings Landingpages
+120px /  75px /  75pxDesktop /  Tablet /Mobile
+120px /  75px /  75px
+120px /  75px /  75px
+120px /  75px /  75px
+120px /  75px /  75px
+120px /  75px /  75px
+
+Online bewegen.24Paddings Subpages
+40px /-/-Desktop /  Tablet /Mobile
+40px /- /-
+40px /- /-80px /40px/40px
+80px /- /-
+80px /- /-
+80px /- /-
+80px /- /-
+80px /- /-
+
+Online bewegen.25Second Level Content
+Egal auf welcher Seite man ist, fährt man über das Untermenu kann definiert werden was für Inhalte da als «second 
+level content» angezeigt werden können. Dies ist gedacht um Themen zu «highlighten» und die Kunden einfacher zu 
+den Themen zu steuern bei denen ihr sie haben wollt.
+Hier gibt es 3 Möglichkeiten:  
+ 
+– Custom:  Ihr definiert mit Titel, Bild und Link exakt was ihr zeigen wollt.  
+– Featured Events: es werden automatisiert die «featured events» angezeigt 
+– Featured News: es werden automatisiert die «featured news» angezeigt
+
+
+Online bewegen.26CRON RUNS AT  DESCRIPTION 
+ 
+cantoSync 
+ 00:15, 02:15, 04:15, 06:15, 
+08:15, 10:15, 12:15, 14:15, 
+16:15, 18:15, 20:15, 22:15Synchronisierung des Ordners „Web Publishing“ in Canto mit 
+MoveCMS. Dabei wird die gesamte Ordnerstruktur und alle Da-
+teien in diesen Ordnern synchronisiert.
+cantoSyncPlayerImages 00:15, 02:15, 04:15, 06:15, 
+08:15, 10:15, 12:15, 14:15, 
+16:15, 18:15, 20:15, 22:15Synchronisierung von Bildern in Canto, die ein benutzerdefinier -
+tes Feld namens „Lizenznummer“ haben. Für jedes Bild wird in 
+MoveCMS geprüft, ob es einen Spieler mit derselben Lizenznum-
+mer gibt, und das Bild dieses Spielers wird aktualisiert.
+cantoSyncPeopleImages 00:15, 02:15, 04:15, 06:15, 
+08:15, 10:15, 12:15, 14:15, 
+16:15, 18:15, 20:15, 22:15Synchronisierung von Bildern in Canto, die ein benutzerdefinier -
+tes Feld namens „Name“ haben, das den vollständigen Namen 
+einer Person enthält. Wir holen auch Daten aus diesen benut-
+zerdefinierten Feldern ab: „Funktion“, „Abteilung“, „Lizenznum-
+mer“. Wir aktualisieren dann eine Person (mit dem vollständigen 
+Namen) mit allen Daten aus den benutzerdefinierten Feldern, 
+die wir erhalten.
+swtDbSyncDelegates 00:15, 02:15, 04:15, 06:15, 
+08:15, 10:15, 12:15, 14:15, 
+16:15, 18:15, 20:15, 22:15Synchronisierung von Delegierten mit Hasura über den End-
+punkt „/delegates“.
+sdaNewsSync from 00:00 to 23:30  
+(every 30 minutes)Synchronisierung von Nachrichten aus SDA über einen FTP-
+Zugang.
+tennisLiveSync 00:31 Synchronisierung von Tennis Live-Spielern, ihren Ergebnissen und 
+Turnieren.
+swtDbSyncPlayers 00:40 Synchronisierung von Spielern mit Hasura über den Endpunkt „/
+squad“.
+swtDbSyncCourses 00:40 Synchronisierung von Kursen mit Hasura über den Endpunkt „/
+courses“.
+swtDbSyncJobOffers 00:40 Synchronisierung von Stellenangeboten mit Hasura über den 
+Endpunkt „/GetJobOffer“.
+swtDbSyncJobSearch 00:40 Synchronisierung der Stellensuche mit Hasura über den End-
+punkt „/GetJobSearch“.
+swtDbSyncIndividuals 00:40 Synchronisierung von Personen mit Hasura über den Endpunkt 
+„/GetPeopleEducation“.
+swtDbSyncQuestion-
+naires00:40 Synchronisierung der Fragebögen mit Hasura über den End-
+punkt „/GetQuestionnaires“.
+swtDbSyncRegionalAs-
+sociations00:40 Synchronisierung der regionalen Assoziation mit Hasura über die 
+Endpunkte „/associationsFunktionTyp“ und „/functionaries“.
+swtDbSyncClubRegions 00:40  
+(on days: 1,6, 11, 21, 26)Synchronisierung von Vereinsregionen mit Hasura über den End-
+punkt „/associations“.
+swtDbSyncClubs 00:40  
+(on days: 1,6, 11, 21, 26)Synchronisierung von Vereinen mit Hasura über den Endpunkt „/
+members“.
+gotCourtsSync 01:00 Synchronisierung von gotCourts.Cronjobs
+
+Online bewegen.27Exkurs Schreibweisen bei Swiss Tennis
+FR Gender.Punkt
+ 
+1. FR ausdrückliche Nennung der weiblichen und männlichen Personenbezeichnung
+2. (wenn ersteres den Text «langatmig» macht) Gender.Punkt
+ Achtung: Bei Verben die angepasst werden müssen, werden ebenfalls Punkte verwendet.
+Beispiele:
+– entraîneur.e.s /  président.e.s /  représentant.e.s /  participant.e.s
+– officiel.le.s
+Ausführliche Regeln findet Ihr im CD-Manual von Swiss Tennis. DE Gender:Doppelpunkt
+ 
+Um die Gleichbehandlung von Frauen und Männern in der Sprache umzusetzen, verwenden wir folgende Schreibweise:
+1. ausdrückliche Nennung der weiblichen und männlichen Personenbezeichnung
+2. (wenn ersteres den Text «langatmig» macht) Gender:Doppelpunkt (Beispiel die Athlet:innen)Bitte beachtet beim Erstellen und Überarbeiten von Inhalten auf der neuen Website ein paar 
+CD-Grundregeln von Swiss Tennis. 
+Es gibt ein paar «feste» Begriffe. Für diese gilt folgende Schreibweise:  
+ 
+–   Swiss Tennis 
+Entgegen der neuen deutschen Rechtschreibung wird dies ohne Bindestrich geschrieben; dieser koppelt 
+ausschliesslich Tennis mit dem nachfolgenden Wort (z.B. Swiss Tennis-Team, Swiss Tennis-Geschäftsstelle). Dasselbe 
+gilt für Kids Tennis.  
+– Kids Tennis /  Kids Tennis High School
+– Nationales Leistungszentrum (NLZ) /  Centre National (CN)
+ Achtung: Wir sprechen nicht mehr vom Karl-Heinz-Kipp-National-Tenniscenter
+– Davis Cup aber Davis-Cup-Begegnung 
+
